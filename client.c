@@ -16,7 +16,7 @@
 #include <arpa/inet.h> 
 #include <netinet/in.h> 
 
-#define PORT 42069
+#define PORT 12514
 
 
 int main()
