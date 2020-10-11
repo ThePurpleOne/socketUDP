@@ -1,8 +1,29 @@
-# socketUDP
-Basic UDP Socket implementation in C
+#SOCKETS
 
-**Compile and run the Server first**\n
-`gcc server.c -o server && ./server `\n
-`gcc client.c -o client && ./client `\n
+## BASIC SOCKETS
+      
+### Client
+-Create socket
+-Connect
+-Send message
+
+### Server
+-Create socket
+-Bind
+-Listen
+-print
+
+## COMPILE
+```bash
+gcc server.c -o server
+gcc client.c -o client
+```
+
+## RUN 
+*different terminals (server first)*
+```bash
+./server
+./client
+```
 
 
