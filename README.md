@@ -3,15 +3,15 @@
 ## BASIC SOCKETS
       
 ### Client
--Create socket
--Connect
--Send message
+- Create socket
+- Connect
+- Send message
 
 ### Server
--Create socket
--Bind
--Listen
--print
+- Create socket
+- Bind
+- Listen
+- print
 
 ## COMPILE
 ```bash
