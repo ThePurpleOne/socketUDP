@@ -63,14 +63,21 @@ int main()
 	
 	//############## RECEIVE AND PROCESS A MESSAGE  ##############	
 	socklen_t len = 0;
-	//socket object
-	//Receive Buffer for the message
-	//size of Buffer
-	//MSG_WAITALL -> wait 'till the whole message is received
-	//client address
-	//adress lenght
-	int n = recvfrom(sock1, (char *)receiveBuffer, 50, MSG_WAITALL, 0, &len );
-	printf("Message : %s\nPort    : %d\n", receiveBuffer, PORT);
+	int x = 0;
+	while (x < 10) // Only quit after receiving 10 messages
+	{
+		x++;
+		//socket object
+		//Receive Buffer for the message
+		//size of Buffer
+		//MSG_WAITALL -> wait 'till the whole message is received
+		//client address
+		//adress lenght
+		int n = recvfrom(sock1, (char *)receiveBuffer, 50, MSG_WAITALL, 0, &len );
+		printf("Message : %s\nPort    : %d\n", receiveBuffer, PORT);
+	}
+	
+
 	//############## END RECEIVE AND PROCESS A MESSAGE  ##############	
 
 	//close the socket
