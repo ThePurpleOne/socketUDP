@@ -1,16 +1,29 @@
 import socket
 
+PORT = 5050
+SERVER = "192.168.1.110"
+ADDR = (SERVER, PORT) 
+HEADER_SIZE = 64
+DISCONNECT_MESSAGE = "&DISCONNECT"
+ENCODING = 'utf-8'
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #ipv4 TCP
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #ipv4 TCP
+client.connect(ADDR)
 
-try:
-	s.connect(("127.0.0.1", 6942))
-	print("Client connecté !")
-	s.sendall(bytes("Message envoyé depuis le client !", "utf-8"))
-	print("message envoyé")
+	def send(msg):
+		message = msg.encode(ENCODING)
+		msg_lenght = len(message) # get message len for the header
+		msg_lenght = str(msg_lenght).encode(ENCODING) #format to send
+		msg_lenght += b' ' * (HEADER_SIZE - len(msg_lenght)) #add binary ' ' padding to fill header
+		print(msg_lenght)
+		client.send(msg_lenght)
+		client.send(message)
 
-except:
-	pass
+	send("Hey Cunt!")
+	input()
+	send("Hey Twat!")
+	input()
+	send("Hey Dumbass!")
+	send(DISCONNECT_MESSAGE)
 
-finally:
-	s.close()
+
